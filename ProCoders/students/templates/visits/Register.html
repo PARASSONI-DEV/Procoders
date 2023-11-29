@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <title>Singup</title>
+    <style>
+      .image-preview{
+        margin-left:120px;
+        margin-right:120px; 
+
+      }
+      
+      .image-preview__default-text{
+        font-size:98px;
+        margin-left:1px;
+        margin-right:1px;
+        position: absolute;
+        top: 129px;
+        
+         }
+        .image-preview, .image-preview__image{
+        width:100px;
+        height: 100px;
+         
+       }
+    
+    </style>
+</head>
+<body class=" bg-light">
+  <div class="container form-group" style="width:450px">
+    <div class="row justify-content-center border border-dark rounded bg-light" style="margin-top:75px">
+      <div class="h1 align-items-center">Registration form</div>
+      <div class="col-12">
+    <form method="POST" class="form-group mt-4"enctype="multipart/form-data">
+      {% csrf_token %}
+       <div class="container">          
+         <div class="image-preview border" id="imagepreview">
+          <img src=" " alt="" class="image-preview__image">
+          <span class="image-preview__default-text"><i class="fa fa-user-circle" aria-hidden="true"></i></span>
+        </div>
+      </div> 
+      {% load crispy_forms_tags %} 
+            {% comment %} {{ form.as_p }} {% endcomment %}
+            {{ form|crispy}}
+            {% comment %} {{fm.label_tag}} {{fm}} {{fm.errors|striptags}} <br><br> {% endcomment %}
+          <button class="btn btn-primary w-100" type="submit">&nbsp; Sign up</button>
+         {% comment %} <a href="{% url "login" %}" class="btn btn-outline-primary w-100 mt-3 mb-3">Already have an account ?</a> {% endcomment %}
+        </form>
+       </div>
+     </div>
+  </div>
+</body>
+<script>
+   const inputid=document.getElementById("id_user_profile_image")
+   const previewcontainer=document.getElementById("imagepreview")
+   const previewimage=previewcontainer.querySelector(".image-preview__image")
+   const previewdefaulttext=previewcontainer.querySelector(".image-preview__default-text")
+   inputid.addEventListener("change",function(){
+     const file=this.files[0];
+     console.log(file)
+     if(file){
+       const reader= new FileReader();
+       previewdefaulttext.style.display="none";
+       previewimage.style.display="block";
+       reader.addEventListener("load",function(){
+         console.log(this);
+        previewimage.setAttribute("src",this.result);
+       })
+       reader.readAsDataURL(file);
+     }else{
+      previewdefaulttext.style.display=null;
+      previewimage.style.display=null;
+      previewimage.setAttribute("src"," ");
+
+     }
+
+   })
+</script>
+</html>

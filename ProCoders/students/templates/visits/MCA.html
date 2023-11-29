@@ -1,0 +1,100 @@
+{% extends 'visits/base.html' %}
+{% load static %}
+{% block title %}Master Of Computer Applications{% endblock title %}
+{% load crispy_forms_tags %} 
+{% comment %} {% block searchbox %}
+<form class="form-inline my-2 my-lg-0"  method="get">
+  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search_input">
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</form>
+{% endblock searchbox %} {% endcomment %}
+{% block maincontentsection %}
+  <h1 class="hedding" style="text-align:center;">{{Mcayears.MCA1}}</h1>
+    <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">No.</th>
+            <th scope="col">Subject Name</th>
+            <th scope="col">Subject Pdf</th>
+            <th scope="col">Subject Pdf</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for MCA1 in MCA1 %}
+          <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td scope="col">{{MCA1.Mca_file_name}}</td>
+            <td scope="col"><a href="{{MCA1.Hindi_write_file.url}}">Hindi</a></td>
+            <td scope="col"><a href="{{MCA1.English_write_file.url}}">English</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+<!-- mca 2-->
+<h1 class="hedding"style="text-align:center;">{{Mcayears.MCA2}}</h1>
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">No.</th>
+            <th scope="col">Subject Name</th>
+            <th scope="col">Subject Pdf</th>
+            <th scope="col">Subject Pdf</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for MCA2 in MCA2 %}
+          <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td scope="col">{{bca.Mca_file_name}}</td>
+            <td scope="col"><a href="{{MCA2.Hindi_write_file.url}}">Hindi</a></td>
+            <td scope="col"><a href="{{MCA2.English_write_file.url}}">English</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+<!--mca3 -->      
+<h1 class="hedding"style="text-align:center;">{{Mcayears.MCA3}}</h1>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">No.</th>
+      <th scope="col">Subject Name</th>
+      <th scope="col">Subject Pdf</th>
+      <th scope="col">Subject Pdf</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for MCA3 in MCA3 %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td scope="col">{{bca.Mca_file_name}}</td>
+      <td scope="col"><a href="{{MCA3.Hindi_write_file.url}}">Hindi</a></td>
+      <td scope="col"><a href="{{MCA3.English_write_file.url}}">English</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<!--mca4 -->      
+<h1 class="hedding"style="text-align:center;">{{Mcayears.MCA4}}</h1>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">No.</th>
+      <th scope="col">Subject Name</th>
+      <th scope="col">Subject Pdf</th>
+      <th scope="col">Subject Pdf</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for MCA4 in MCA4 %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td scope="col">{{MCA4.Mca_file_name}}</td>
+      <td scope="col"><a href="{{MCA4.Hindi_write_file.url}}">Hindi</a></td>
+      <td scope="col"><a href="{{MCA4.English_write_file.url}}">English</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock maincontentsection %}

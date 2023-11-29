@@ -1,0 +1,79 @@
+{% extends 'visits/base.html' %}
+{% load static %}
+{% block title %}Master Of Computer Applications{% endblock title %}
+{% load crispy_forms_tags %} 
+
+{% comment %} {% block searchbox %}
+<form class="form-inline my-2 my-lg-0">
+  <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</form>
+{% endblock searchbox %} {% endcomment %}
+{% block maincontentsection %}
+
+  <h1 class="hedding"style="text-align:center;">{{Bcayears.BCA1}}</h1>
+    <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">No.</th>
+            <th scope="col">Subject Name</th>
+            <th scope="col">Subject Pdf</th>
+            <th scope="col">Subject Pdf</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for bca in BCA1 %}
+          <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td scope="col">{{bca.bca_file_name}}</td>
+            <td scope="col"><a href="{{bca.Hindi_write_file.url}}">Hindi</a></td>
+            <td scope="col"><a href="{{bca.English_write_file.url}}">English</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+<!-- bca 2-->
+<h1 class="hedding"style="text-align:center;">{{Bcayears.BCA2}}</h1>
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">No.</th>
+            <th scope="col">Subject Name</th>
+            <th scope="col">Subject Pdf</th>
+            <th scope="col">Subject Pdf</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for bca2 in BCA2 %}
+          <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td scope="col">{{bca2.bca_file_name}}</td>
+            <td scope="col"><a href="{{bca2.Hindi_write_file.url}}">Hindi</a></td>
+            <td scope="col"><a href="{{bca2.English_write_file.url}}">English</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+<!--bca3 -->      
+<h1 class="hedding"style="text-align:center;">{{Bcayears.BCA3}}</h1>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">No.</th>
+      <th scope="col">Subject Name</th>
+      <th scope="col">Subject Pdf</th>
+      <th scope="col">Subject Pdf</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for bca3 in BCA3 %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td scope="col">{{bca.bca_file_name}}</td>
+      <td scope="col"><a href="{{bca3.Hindi_write_file.url}}">Hindi</a></td>
+      <td scope="col"><a href="{{bca3.English_write_file.url}}">English</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock maincontentsection %}

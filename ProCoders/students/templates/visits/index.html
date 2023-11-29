@@ -1,0 +1,116 @@
+{% extends 'visits/base.html' %}
+{% block title %}home{% endblock title %}
+{% load static %}
+{% load crispy_forms_tags %} 
+
+{% block css1 %}
+<style>
+.dgree{
+width:250px;
+height:250px;
+border-radius:9px;
+}
+.leftside{
+   width:45%;
+   height:auto;
+   overflow: hidden;
+   margin-top:-5px;
+   
+}
+.leftside img{
+   width:600px;
+   height:600px;
+   clip-path: circle(60% at 30% 40%);
+}
+.screen{
+   margin-top:-20px;
+   width: 100%;
+   height: 100vh;
+   background:linear-gradient(57deg,#00c6a7,#1e4d92);
+   clip-path: polygon(0% 0%, 100% 0%, 100% 70%,0% 100%);
+   display:flex;
+}
+.rightside{
+   height: 70vh;
+   width:600px;
+   font-size:15px;
+   color:#ffffff;
+   padding-top:100px;
+   background:rgbs(255,255,255.2);
+   box-shadow:0 5px 15px rgba(0,0,0,.5);
+   border-radius:40px;
+   margin-top:6px;
+}
+.Aboutspan{
+   font-size:31px;
+   padding:40px
+   color:#FFFFFF;
+   text-align:center;
+}
+</style>
+{% endblock css1 %}
+
+{% block maincontentsection %}
+{% comment %} {% if messages %}
+   {% for mess in messages %}
+   <div class="alert alert-success text-center display-5">
+    {{mess}}
+   </div>
+   {% endfor %}
+{% endif %} {% endcomment %}
+<section class="#">
+   <div class="screen">
+      <div class="leftside">
+         <img src="{% static 'images/dd.jpg' %}" alt="studentimage">
+      </div>
+      <ul class="rightside">
+         <p class="Aboutspan">About us</p>
+         <li>Pro Coder's is the conservative step taken by us to support the student pursing Bachelor Of Computer Applications (BCA) and Master of Computer Applications (MCA).</li>
+         <li>We are highly obliged if we are able to help single student in "FruitFull" manner.</li>
+         <li>This is a small educational startup which is opened by our team members who are well experienced in their field.</li>
+         <li>Anytime, anywhere Pro Coders aims at adding to the expanded convenience of the users. Every user can access this portal for notes at anytime from anywhere.</li>
+         <li>We are going to buit a community full of passion, dedication, support and knowledge. By your love and support, We will take this portal to the Sky in very few days.</li>
+         </ul>
+      </div>
+</section>
+<div style="width:100% ;background: #dcdcdc">
+</div>
+<div class="container">
+    <div class="row d-flex justify-content-between">
+       <div class="col-4">
+        <a href="{% url 'BCA' %}"><img class="dgree"src="{% static 'images/a.jpg' %}" class="rounded float-left" alt="BCA"></a>
+       </div>
+       <div class="col-4">
+        <a href="{% url 'MCA' %}"><img class="dgree"src="{% static 'images/b.jpg' %}" class="rounded float-right" alt="MCA"></a>
+       </div>
+     </div>
+</div>
+{% endblock maincontentsection %}
+
+{% block maincontentsection1 %}
+
+<div class="container form-group" style="width:450px">
+   <div class="row justify-content-center" style="margin:105px;">
+     {% comment %} <div class="h1 align-items-center">Login form</div> {% endcomment %}
+     <div class="col-12">
+      <div class="row">
+         <div class="col-sm-2 border-end">
+          <ul class="list-unstyled">
+           <li class="d-grid"><a href="{% url 'alreadyfeedback' %}" class="btn btn-outline-primary">view feedback</a></li>
+           <li class="d-grid"><a href="{% url 'feed_back_form' %}" class="btn btn-primary">feedback form</a></li>
+          </ul>
+         </div>
+      </div>
+      </div>
+    </div>
+ </div>
+
+ 
+
+
+{% endblock maincontentsection1 %}
+
+
+{% block feedback %}
+
+{% endblock feedback %}

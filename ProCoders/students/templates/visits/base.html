@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <title>{% block title %}{% endblock title %}</title>
+    <style> 
+        .carousel-inner>.item>img,
+        .carousel-inner>.item>a>img {
+            width: 100%;
+            margin: auto;
+        }
+        .abc{
+            font-size:25px;
+            font-family:saas,sans-serif;
+        }
+        .about{
+            background-color:light black;
+            height: 4.5vh;
+            margin-top:200px;
+        }
+    </style>
+    {% block css1 %}{% endblock css1 %}
+</head>
+<body style="background-color: rgba(245,245,245);">
+    {% comment %}  {% endcomment %}
+    <script src="{% static 'js/myscript.js' %}"></script>
+    <header class="hea">               
+                {% comment %} search box {% endcomment %}
+                <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+                    <a class="navbar-brand" href="#">    <div class="menu_logo">
+                        <h1 class="text-white">ProCoders.com</h1>
+                    </div></a>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item active">
+                              <a class="nav-link text-white pl-5 abc" href="{% url 'index' %}">Home<span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                              <a class="nav-link text-white pl-5 abc" href="#">Contact</a>
+                            </li>
+                        </ul>   
+                      <ul class="navbar-nav ">
+                        <li class="nav-item dropdown pl-5 ml-5" style="font-size:20px">
+                          <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Login/Signup
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </nav>
+                
+                <!-- <div class=""></div> -->
+
+    </header>
+    <!-- body-->
+    <style>
+        .cardpags {
+            color: black;
+        }
+        
+        .cardpags:hover {
+            color: rgb(236, 52, 61);
+            text-decoration: none;
+        }
+        .feedback{
+            width:100%;
+        }
+        {% comment %} .abb{
+            width:500px;
+            
+        } {% endcomment %}
+        
+    </style>
+    {% block css2 %}{% endblock css2 %}
+   
+    {% block maincontentsection %}{% endblock maincontentsection %}
+    {% block maincontentsection1 %}{% endblock maincontentsection1 %}
+    <!--feedback-->
+     {% block feedback %}{% endblock feedback %}
+   <!-- about-->
+  
+   {% block singaleproductscript %}{% endblock singaleproductscript %}
+   <div class="container-fluid  bg-dark about">
+    <div class="row col-12">
+      <p class="text-center text-light">© Copyright 2022 | Made With ❤️️ </p>
+      </div>
+    </div>
+</body>    
+</html>

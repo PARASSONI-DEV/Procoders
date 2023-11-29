@@ -1,0 +1,46 @@
+{% extends 'visits/base.html' %}
+{% block title %}feedback {% endblock title %}
+{% load static %}
+{% block maincontentsection %}
+<div class="col-sm-2 border-end">
+  <ul class="list-unstyled">
+    <li class="d-grid"><a href="{% url 'alreadyfeedback' %}" class="btn btn-outline-primary mb-3">view feedback</a></li>
+    <li class="d-grid"><a href="{% url 'feed_back_form' %}" class="btn {{active}} mb-5">feedback form</a></li>
+  </ul>
+</div>
+{% if add %}
+<div class="container my-5 mb-5">
+  <div class="row">
+    <div class="col-sm-9 offset-sm-1">
+      <div class="row">
+        {% for ad in add %}
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <p>Email:{{ad.stu_email}}</p>
+              <p>Feedback:{{ad.stu_FeedBackText}}</p>
+              <p>Date:{{ad.date}}</p>
+         </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+</div>
+
+{% else %}
+<br>
+<br>
+{% if form %}
+<!-- form-->
+<form method="POST" action="{% url 'feed_back_form' %}">
+  <div class="form-group mt-5 mb-5">
+    {% csrf_token %}
+   {{ form }}
+  <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
+{% endif %}
+{% endif %}
+{% endblock maincontentsection %}
